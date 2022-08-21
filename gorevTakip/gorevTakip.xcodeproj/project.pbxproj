@@ -15,6 +15,7 @@
 		23EFF2C928B1D8FA00924F2D /* gorevTakip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2C728B1D8FA00924F2D /* gorevTakip.xcdatamodeld */; };
 		23EFF2D228B1D94300924F2D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2D128B1D94300924F2D /* Home.swift */; };
 		23EFF2D428B1DEAF00924F2D /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2D328B1DEAF00924F2D /* TaskViewModel.swift */; };
+		23EFF2D628B1E6E800924F2D /* AddNewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2D528B1E6E800924F2D /* AddNewTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		23EFF2C828B1D8FA00924F2D /* gorevTakip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gorevTakip.xcdatamodel; sourceTree = "<group>"; };
 		23EFF2D128B1D94300924F2D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		23EFF2D328B1DEAF00924F2D /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		23EFF2D528B1E6E800924F2D /* AddNewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				23EFF2D128B1D94300924F2D /* Home.swift */,
+				23EFF2D528B1E6E800924F2D /* AddNewTask.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				23EFF2D428B1DEAF00924F2D /* TaskViewModel.swift in Sources */,
 				23EFF2BF28B1D8F900924F2D /* ContentView.swift in Sources */,
 				23EFF2D228B1D94300924F2D /* Home.swift in Sources */,
+				23EFF2D628B1E6E800924F2D /* AddNewTask.swift in Sources */,
 				23EFF2BD28B1D8F900924F2D /* gorevTakipApp.swift in Sources */,
 				23EFF2C928B1D8FA00924F2D /* gorevTakip.xcdatamodeld in Sources */,
 			);
