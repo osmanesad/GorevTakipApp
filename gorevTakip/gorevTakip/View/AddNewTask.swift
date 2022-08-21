@@ -40,12 +40,39 @@ struct AddNewTask: View {
                         Circle()
                             .fill(Color(color))
                             .frame(width: 25, height: 25)
-                        
-                        
+                            .background{
+                                if taskModel.taskColor == color {
+                                    Circle()
+                                        .strokeBorder(.gray)
+                                        .padding(-3)
+                                }
+                            }
+                            .contentShape(Circle())
+                            .onTapGesture {
+                                taskModel.taskColor = color
+                            }
                     }
                 }
+                .padding(.top, 10)
                 
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 30)
+            
+            Divider()
+                .padding(.vertical, 10)
+            
+            VStack(alignment: .leading, spacing: 12){
+                Text("Görev Başlığı")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                TextField("", text: $taskModel.taskTitle)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 10)
+            }
+            Divider()
+            
             
         }
         .frame(maxHeight: .infinity, alignment: .top)
