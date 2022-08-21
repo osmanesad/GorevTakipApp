@@ -49,7 +49,7 @@ struct Home: View {
                 //.frame(maxWidth: .infinity)
                 .background(.black, in: Capsule())
             }
-// MARK: Linear Gradient BG
+            // MARK: Linear Gradient BG
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
             .background{
@@ -62,10 +62,13 @@ struct Home: View {
                 .ignoresSafeArea()
             }
         }
-        .fullScreenCover(isPresented: $taskModel.openEditTask){
+        .fullScreenCover(isPresented: $taskModel.openEditTask) {
+            taskModel.resetTaskData()
+        } content: {
             AddNewTask()
                 .environmentObject(taskModel)
         }
+        
     }
     
     // MARK: Custom Segmented Bar -

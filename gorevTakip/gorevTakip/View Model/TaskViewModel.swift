@@ -16,8 +16,30 @@ class TaskViewModel: ObservableObject {
     @Published var taskColor: String = "Yeşil"
     @Published var taskDeadline: Date = Date()
     @Published var taskType: String = "Okunacaklar"
+    @Published var showDatePicker: Bool = false
     
 // MARK: Adding Task To Core Data
+    
+    func addTask(context: NSManagedObjectContext)->Bool{
+        let task = Task(context: context)
+        task.title = taskTitle
+        task.color = taskColor
+        task.deadline = taskDeadline
+        task.type = taskType
+        
+        if let _ = try? context.save() {
+            return true
+        }
+        return false
+    }
+    
+//MARK: Resetting Data -
+    func resetTaskData(){
+        taskType = "Yapılacaklar"
+        taskColor = "Sarı"
+        taskTitle = ""
+        taskDeadline = Date()
+    }
     
 }
 
