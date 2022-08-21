@@ -9,13 +9,13 @@ import SwiftUI
 
 struct Home: View {
     @StateObject var taskModel: TaskViewModel = .init()
-// MARK: Matched Geometry Namespace -
+    // MARK: Matched Geometry Namespace -
     @Namespace var animation
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack{
                 VStack(alignment: .leading, spacing: 8){
-                    Text("Yeniden Hoşgeldin")
+                    Text("Yeniden Hoşgeldin") // For döngüsü yap her seferinde başka mesaj verdir !
                         .font(.callout)
                     Text("Bugünkü başlıkların")
                         .font(.title2.bold())
@@ -25,12 +25,36 @@ struct Home: View {
                 .padding(.vertical)
                 
                 CustomSegmentedBar()
+                    .padding(.top,5)
+                // MARK: Task View -
+                
             }
             .padding()
         }
+        .overlay(alignment:.bottom){
+            // MARK: Add Button -
+            Button{
+                
+            } label: {
+                Label{
+                    Text("Görev Ekle")
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                } icon: {
+                    Image(systemName: "plus.app.fill")
+                }
+                .foregroundColor(.white)
+                .padding(.vertical,12)
+                .padding(.horizontal)
+                //.frame(maxWidth: .infinity)
+                .background(.black, in: Capsule())
+                
+                
+            }
+        }
     }
     
-// MARK: Custom Segmented Bar -
+    // MARK: Custom Segmented Bar -
     
     @ViewBuilder
     func CustomSegmentedBar()-> some View{
