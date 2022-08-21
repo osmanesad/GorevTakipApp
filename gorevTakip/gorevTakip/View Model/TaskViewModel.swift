@@ -17,6 +17,8 @@ class TaskViewModel: ObservableObject {
     @Published var taskDeadline: Date = Date()
     @Published var taskType: String = "Okunacaklar"
     
+// MARK: Adding Task To Core Data
+    
 }
 
 

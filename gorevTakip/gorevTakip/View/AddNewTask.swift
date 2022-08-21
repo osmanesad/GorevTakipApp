@@ -152,6 +152,10 @@ struct AddNewTask: View {
                             .fill(.black)
                     }
             }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 10)
+            .disabled(taskModel.taskTitle == "")
+            .opacity(taskModel.taskTitle == "" ? 0.6 : 1)
             
         }
         .frame(maxHeight: .infinity, alignment: .top)
