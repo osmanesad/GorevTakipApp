@@ -8,9 +8,57 @@
 import SwiftUI
 
 struct Home: View {
+    @StateObject var taskModel: TaskViewModel = .init()
+// MARK: Matched Geometry Namespace -
+    @Namespace var animation
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.vertical, showsIndicators: false){
+            VStack{
+                VStack(alignment: .leading, spacing: 8){
+                    Text("Yeniden Hoşgeldin")
+                        .font(.callout)
+                    Text("Bugünkü başlıkların")
+                        .font(.title2.bold())
+                    
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical)
+                
+                CustomSegmentedBar()
+            }
+            .padding()
+        }
     }
+    
+// MARK: Custom Segmented Bar -
+    
+    @ViewBuilder
+    func CustomSegmentedBar()-> some View{
+        let tabs = ["Bugün","Yakında","Tamamlandı"]
+        HStack(spacing: 10){
+            ForEach(tabs, id: \.self){tab in
+                Text(tab)
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .scaleEffect(0.9)
+                    .foregroundColor(taskModel.currentTab == tab ? .white: .black)
+                    .padding(.vertical, 6)
+                    .frame(maxWidth: .infinity)
+                    .background{
+                        if taskModel.currentTab == tab{
+                            Capsule()
+                                .fill(.black)
+                                .matchedGeometryEffect(id: "TAB", in: animation)
+                        }
+                    }
+                    .contentShape(Capsule())
+                    .onTapGesture{
+                        withAnimation{taskModel.currentTab = tab}
+                    }
+            }
+        }
+    }
+    
 }
 
 struct Home_Previews: PreviewProvider {

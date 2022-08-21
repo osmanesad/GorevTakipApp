@@ -14,6 +14,7 @@
 		23EFF2C628B1D8FA00924F2D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2C528B1D8FA00924F2D /* Persistence.swift */; };
 		23EFF2C928B1D8FA00924F2D /* gorevTakip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2C728B1D8FA00924F2D /* gorevTakip.xcdatamodeld */; };
 		23EFF2D228B1D94300924F2D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2D128B1D94300924F2D /* Home.swift */; };
+		23EFF2D428B1DEAF00924F2D /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2D328B1DEAF00924F2D /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		23EFF2C528B1D8FA00924F2D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		23EFF2C828B1D8FA00924F2D /* gorevTakip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gorevTakip.xcdatamodel; sourceTree = "<group>"; };
 		23EFF2D128B1D94300924F2D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		23EFF2D328B1DEAF00924F2D /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +59,10 @@
 		23EFF2BB28B1D8F900924F2D /* gorevTakip */ = {
 			isa = PBXGroup;
 			children = (
+				23EFF2BE28B1D8F900924F2D /* ContentView.swift */,
+				23EFF2BC28B1D8F900924F2D /* gorevTakipApp.swift */,
 				23EFF2D028B1D92600924F2D /* View Model */,
 				23EFF2CF28B1D91F00924F2D /* View */,
-				23EFF2BC28B1D8F900924F2D /* gorevTakipApp.swift */,
-				23EFF2BE28B1D8F900924F2D /* ContentView.swift */,
 				23EFF2C028B1D8FA00924F2D /* Assets.xcassets */,
 				23EFF2C528B1D8FA00924F2D /* Persistence.swift */,
 				23EFF2C728B1D8FA00924F2D /* gorevTakip.xcdatamodeld */,
@@ -88,6 +90,7 @@
 		23EFF2D028B1D92600924F2D /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				23EFF2D328B1DEAF00924F2D /* TaskViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EFF2C628B1D8FA00924F2D /* Persistence.swift in Sources */,
+				23EFF2D428B1DEAF00924F2D /* TaskViewModel.swift in Sources */,
 				23EFF2BF28B1D8F900924F2D /* ContentView.swift in Sources */,
 				23EFF2D228B1D94300924F2D /* Home.swift in Sources */,
 				23EFF2BD28B1D8F900924F2D /* gorevTakipApp.swift in Sources */,
