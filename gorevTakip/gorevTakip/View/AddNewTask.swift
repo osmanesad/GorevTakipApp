@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddNewTask: View {
     @EnvironmentObject var taskModel: TaskViewModel
+    @Namespace var animation
     // MARK: All Enviroment Values in one Variable -
     @Environment(\.self) var env
     var body: some View {
@@ -62,6 +63,29 @@ struct AddNewTask: View {
             Divider()
                 .padding(.vertical, 10)
             
+            
+            VStack(alignment: .leading, spacing: 12){
+                Text("Görev Zamanı")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Text(taskModel.taskDeadline.formatted(date: .abbreviated, time: .omitted) + ", " + taskModel.taskDeadline.formatted(date: .omitted, time: .shortened))
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .padding(.top, 10)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .overlay(alignment: .bottomTrailing){
+                Button{
+                    
+                } label: {
+                    Image(systemName: "calendar")
+                        .foregroundColor(.black)
+                }
+            }
+            
+            Divider()
+            
             VStack(alignment: .leading, spacing: 12){
                 Text("Görev Başlığı")
                     .font(.caption)
@@ -71,8 +95,63 @@ struct AddNewTask: View {
                     .frame(maxWidth: .infinity)
                     .padding(.top, 10)
             }
+            .padding(.top, 10)
+            
             Divider()
             
+//MARK: Sample Task Types -
+            let taskTypes: [String] = ["Okunacaklar","İzlenecekler","Yapılacaklar"]
+            VStack(alignment: .leading, spacing: 12){
+                Text("Görev Türü")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                HStack(spacing:12){
+                    ForEach(taskTypes, id: \.self){type in
+                        Text(type)
+                            .font(.callout)
+                            .padding(.vertical,8)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(taskModel.taskType == type ? .white: .black)
+                            .background{
+                                if taskModel.taskType == type {
+                                    Capsule()
+                                        .fill(.black)
+                                        .matchedGeometryEffect(id: "TYPE", in: animation)
+                                } else {
+                                    Capsule()
+                                        .strokeBorder(.black)
+                                }
+                            }
+                            .contentShape(Capsule())
+                            .onTapGesture{
+                                withAnimation{
+                                    taskModel.taskType = type
+                                }
+                            }
+                    }
+                }
+                .padding(.top, 8)
+            }
+            .padding(.vertical, 10)
+            
+            Divider()
+            
+// MARK: Save Button -
+            Button{
+                
+            } label: {
+                Text("Görevi Kaydet")
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .foregroundColor(.white)
+                    .background{
+                        Capsule()
+                            .fill(.black)
+                    }
+            }
             
         }
         .frame(maxHeight: .infinity, alignment: .top)
