@@ -92,8 +92,13 @@ struct AddNewTask: View {
                     .foregroundColor(.gray)
                 
                 TextField("", text: $taskModel.taskTitle)
+                    //.foregroundColor(Color.gray)
+                    //.accentColor(Color.green)
+                    
                     .frame(maxWidth: .infinity)
                     .padding(.top, 10)
+                    
+                
             }
             .padding(.top, 10)
             
