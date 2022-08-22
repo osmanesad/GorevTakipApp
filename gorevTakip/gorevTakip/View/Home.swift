@@ -19,7 +19,7 @@ struct Home: View {
         ScrollView(.vertical, showsIndicators: false){
             VStack{
                 VStack(alignment: .leading, spacing: 8){
-                    Text("Yeniden Hoşgeldin") // For döngüsü yap her seferinde başka mesaj verdir !
+                    Text("Yeniden Hoşgeldin") // Döngü yap her seferinde başka mesaj verdir !
                         .font(.callout)
                     Text("Bugünkü başlıkların")
                         .font(.title2.bold())
