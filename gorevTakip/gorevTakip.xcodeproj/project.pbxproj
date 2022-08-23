@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2307DB0928B57C470007327D /* DynamicFilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307DB0828B57C470007327D /* DynamicFilteredView.swift */; };
 		23EFF2BD28B1D8F900924F2D /* gorevTakipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2BC28B1D8F900924F2D /* gorevTakipApp.swift */; };
 		23EFF2BF28B1D8F900924F2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFF2BE28B1D8F900924F2D /* ContentView.swift */; };
 		23EFF2C128B1D8FA00924F2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EFF2C028B1D8FA00924F2D /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2307DB0828B57C470007327D /* DynamicFilteredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFilteredView.swift; sourceTree = "<group>"; };
 		23EFF2B928B1D8F900924F2D /* gorevTakip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gorevTakip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EFF2BC28B1D8F900924F2D /* gorevTakipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gorevTakipApp.swift; sourceTree = "<group>"; };
 		23EFF2BE28B1D8F900924F2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		23EFF2CF28B1D91F00924F2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2307DB0828B57C470007327D /* DynamicFilteredView.swift */,
 				23EFF2D128B1D94300924F2D /* Home.swift */,
 				23EFF2D528B1E6E800924F2D /* AddNewTask.swift */,
 			);
@@ -171,6 +174,7 @@
 				23EFF2C628B1D8FA00924F2D /* Persistence.swift in Sources */,
 				23EFF2D428B1DEAF00924F2D /* TaskViewModel.swift in Sources */,
 				23EFF2BF28B1D8F900924F2D /* ContentView.swift in Sources */,
+				2307DB0928B57C470007327D /* DynamicFilteredView.swift in Sources */,
 				23EFF2D228B1D94300924F2D /* Home.swift in Sources */,
 				23EFF2D628B1E6E800924F2D /* AddNewTask.swift in Sources */,
 				23EFF2BD28B1D8F900924F2D /* gorevTakipApp.swift in Sources */,
