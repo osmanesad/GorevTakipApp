@@ -13,7 +13,8 @@ struct Home: View {
     // MARK: Matched Geometry Namespace -
     @Namespace var animation
     
-    // MARK: Fetching Task -
+    // MARK: Fetching Task
+    
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath:\Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
     
     // 
@@ -120,6 +121,10 @@ struct Home: View {
                 if !task.isCompleted{
                     Button{
                         
+                        taskModel.editTask = task
+                        taskModel.openEditTask = true
+                        taskModel.setupTask()
+                        
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .foregroundColor(.black)
@@ -158,6 +163,7 @@ struct Home: View {
                         
                         // MARK: Update -
                         task.isCompleted.toggle()
+                        try? env.managedObjectContext.save()
                         
                     } label: {
                         Circle()
