@@ -119,7 +119,7 @@ struct Home: View {
                     }
                 Spacer()
                 
-                if !task.isCompleted{
+                if !task.isCompleted && taskModel.currentTab != "Başarısız"{
                     Button{
                         
                         taskModel.editTask = task
@@ -159,7 +159,7 @@ struct Home: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                if !task.isCompleted {
+                if !task.isCompleted && taskModel.currentTab != "Başarısız"{
                     Button{
                         
                         // MARK: Update -
@@ -189,7 +189,7 @@ struct Home: View {
     
     @ViewBuilder
     func CustomSegmentedBar()-> some View{
-        let tabs = ["Bugün","Yakında","Tamamlandı"]
+        let tabs = ["Bugün","Yakında","Yapılanlar","Başarısız"]
         HStack(spacing: 10){
             ForEach(tabs, id: \.self){tab in
                 Text(tab)

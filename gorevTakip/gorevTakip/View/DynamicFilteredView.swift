@@ -15,12 +15,11 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
     
     // MARK: Building Custom ForEach which will give Coredata object to build View
     init(currentTab: String,@ViewBuilder content: @escaping (T)->Content){
-        
+    
         // MARK: Predicate to Filter current date Tasks
         let calendar = Calendar.current
         var predicate: NSPredicate!
-        
-        if currentTab == "Bugün" {
+        if currentTab == "Bugün"{
             let today = calendar.startOfDay(for: Date())
             let tommorow = calendar.date(byAdding: .day, value: 1, to: today)!
             
@@ -28,12 +27,9 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
             let filterKey = "deadline"
             
             // This will fetch task between today and tommorow which is 24 HRS
-            // 0 false 1 true
+            // 0-false, 1-true
             predicate = NSPredicate(format: "\(filterKey) >= %@ AND \(filterKey) < %@ AND isCompleted == %i", argumentArray: [today,tommorow,0])
-            
-            
-        } else if currentTab == "Yakında"{
-            
+        }else if currentTab == "Yakında"{
             let today = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
             let tommorow = Date.distantFuture
             
@@ -41,17 +37,25 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
             let filterKey = "deadline"
             
             // This will fetch task between today and tommorow which is 24 HRS
-            // 0 false 1 true
+            // 0-false, 1-true
             predicate = NSPredicate(format: "\(filterKey) >= %@ AND \(filterKey) < %@ AND isCompleted == %i", argumentArray: [today,tommorow,0])
+        }else if currentTab == "Başarısız"{
+            let today = calendar.startOfDay(for: Date())
+            let past = Date.distantPast
             
+            // Filter Key
+            let filterKey = "deadline"
             
-        } else {
-            
+            // This will fetch task between today and tommorow which is 24 HRS
+            // 0-false, 1-true
+            predicate = NSPredicate(format: "\(filterKey) >= %@ AND \(filterKey) < %@ AND isCompleted == %i", argumentArray: [past,today,0])
         }
-    
-        
-        
-  
+        else{
+            // 0-false, 1-true
+            predicate = NSPredicate(format: "isCompleted == %i", argumentArray: [1])
+        }
+        // Intializing Request With NSPredicate
+        // Adding Sort
         _request = FetchRequest(entity: T.entity(), sortDescriptors: [.init(keyPath: \Task.deadline, ascending: false)], predicate: predicate)
         self.content = content
     }
@@ -60,7 +64,7 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
         
         Group{
             if request.isEmpty{
-                Text("Buralar hep dutluktu!")
+                Text("Buralar dutluktu!")
                     .font(.system(size: 16))
                     .fontWeight(.light)
                     .offset(y: 100)
