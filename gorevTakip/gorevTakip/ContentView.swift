@@ -12,19 +12,28 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            Home()
-                .navigationBarTitle("Görev Yöneticisi") // Task Manager
-                .navigationBarTitleDisplayMode(.inline)
-        }
             
+            Home()
+                .navigationBarTitle("Remimder")
+                
+                .navigationBarTitleDisplayMode(.inline)
+                
+        }
+        
+    
+  
     }
-
-    
-    
-    
 }
 
-
+struct ProfilView: View {
+    var body: some View {
+        Image(systemName: "bell")
+            .resizable()
+            .scaledToFit()
+            .frame(width:20, height: 20)
+            .clipShape(Circle())
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

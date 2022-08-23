@@ -16,6 +16,8 @@ struct Home: View {
     // MARK: Fetching Task -
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath:\Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
     
+    // 
+    
     // MARK: Environment Values
     @Environment(\.self) var env
     
@@ -23,8 +25,14 @@ struct Home: View {
         ScrollView(.vertical, showsIndicators: false){
             VStack{
                 VStack(alignment: .leading, spacing: 8){
-                    Text("Yeniden Hoşgeldin") // Döngü yap her seferinde başka mesaj verdir !
-                        .font(.callout)
+                    HStack{
+                        Image(systemName: "bell.circle.fill")
+                        Text("Remimder App'a") // Döngü yap her seferinde başka mesaj verdir !
+                            .font(.callout)
+                        
+                        Text("Hoş Geldin.")
+                    }
+                    
                     Text("Bugünkü başlıkların")
                         .font(.title2.bold())
                     
@@ -47,7 +55,7 @@ struct Home: View {
                 taskModel.openEditTask.toggle()
             } label: {
                 Label{
-                    Text("Görev Ekle")
+                    Text("Yeni Hatırlatma Ekle")
                         .font(.callout)
                         .fontWeight(.semibold)
                 } icon: {
@@ -147,6 +155,9 @@ struct Home: View {
                 
                 if !task.isCompleted {
                     Button{
+                        
+                        // MARK: Update -
+                        task.isCompleted.toggle()
                         
                     } label: {
                         Circle()

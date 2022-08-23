@@ -15,7 +15,7 @@ struct AddNewTask: View {
     @Environment(\.self) var env
     var body: some View {
         VStack(spacing: 12){
-            Text("Düzenle")
+            Text("Ekle/Düzenle")
                 .font(.title3.bold())
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading){
@@ -30,7 +30,7 @@ struct AddNewTask: View {
                 }
             
             VStack(alignment: .leading, spacing: 12){
-                Text("Görev Rengi")
+                Text("Renklendir")
                     .font(.caption)
                     .foregroundColor(.gray)
                 // MARK: Sample Card Colors
@@ -66,7 +66,7 @@ struct AddNewTask: View {
             
             
             VStack(alignment: .leading, spacing: 12){
-                Text("Görev Zamanı")
+                Text("Zamanla")
                     .font(.caption)
                     .foregroundColor(.gray)
                 
@@ -88,11 +88,11 @@ struct AddNewTask: View {
             Divider()
             
             VStack(alignment: .leading, spacing: 12){
-                Text("Görev Başlığı")
+                Text("Hakkında")
                     .font(.caption)
                     .foregroundColor(.gray)
                 
-                TextField("", text: $taskModel.taskTitle)
+                TextField("Buraya hatırlatmayla ilgili birşey yazın...", text: $taskModel.taskTitle)
                     
                     .frame(maxWidth: .infinity)
                     .padding(.top, 10)
@@ -106,7 +106,7 @@ struct AddNewTask: View {
 //MARK: Sample Task Types -
             let taskTypes: [String] = ["Okunacaklar","İzlenecekler","Yapılacaklar"]
             VStack(alignment: .leading, spacing: 12){
-                Text("Görev Türü")
+                Text("Tür")
                     .font(.caption)
                     .foregroundColor(.gray)
                 
@@ -149,7 +149,7 @@ struct AddNewTask: View {
                     
                 }
             } label: {
-                Text("Görevi Kaydet")
+                Text("Kaydet")
                     .font(.callout)
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
