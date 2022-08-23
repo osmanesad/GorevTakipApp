@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Home: View {
     @StateObject var taskModel: TaskViewModel = .init()
@@ -14,6 +15,9 @@ struct Home: View {
     
     // MARK: Fetching Task -
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath:\Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
+    
+    // MARK: Environment Values
+    @Environment(\.self) var env
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -31,6 +35,8 @@ struct Home: View {
                 CustomSegmentedBar()
                     .padding(.top,5)
                 // MARK: Task View -
+                
+                TaskView()
                 
             }
             .padding()
@@ -99,7 +105,7 @@ struct Home: View {
                     .padding(.horizontal)
                     .background{
                         Capsule()
-                            .fill(.gray.opacity(0.3))
+                            .fill(.white.opacity(0.3))
                     }
                 Spacer()
                 
@@ -118,6 +124,38 @@ struct Home: View {
                 .font(.title2.bold())
                 .foregroundColor(.black)
                 .padding(.vertical, 10)
+            
+            
+            HStack(alignment: .bottom, spacing: 0){
+                VStack(alignment: .leading, spacing: 10){
+                    Label {
+                        Text((task.deadline ?? Date()).formatted(date: .long, time: .omitted))
+                    } icon: {
+                        Image(systemName: "calender")
+                    }
+                    .font(.caption)
+                    
+                    Label {
+                        Text((task.deadline ?? Date()).formatted(date: .omitted, time: .shortened))
+                    } icon: {
+                        Image(systemName: "clock")
+                    }
+                    .font(.caption)
+                    
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                if !task.isCompleted {
+                    Button{
+                        
+                    } label: {
+                        Circle()
+                            .strokeBorder(.black, lineWidth: 1.5)
+                            .frame(width: 25, height: 25)
+                            .contentShape(Circle())
+                    }
+                }
+            }
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -125,6 +163,7 @@ struct Home: View {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .fill(Color(task.color ?? "Sarı"))
         }
+        
     }
     
     
@@ -155,7 +194,9 @@ struct Home: View {
                     }
             }
         }
+        
     }
+    
     
 }
 

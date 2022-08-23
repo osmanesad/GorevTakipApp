@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AddNewTask: View {
     @EnvironmentObject var taskModel: TaskViewModel
