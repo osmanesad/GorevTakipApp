@@ -62,11 +62,14 @@ struct Home: View {
                 } icon: {
                     Image(systemName: "plus.app.fill")
                 }
+                
                 .foregroundColor(.white)
+                
                 .padding(.vertical,12)
                 .padding(.horizontal)
                 //.frame(maxWidth: .infinity)
                 .background(.black, in: Capsule())
+                .padding()
             }
             // MARK: Linear Gradient BG
             .padding(.top, 10)

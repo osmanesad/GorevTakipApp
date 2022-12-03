@@ -11,16 +11,16 @@ import CoreData
 struct ContentView: View {
     
     var body: some View {
-        NavigationView{
-            
-            Home()
-                .navigationBarTitle("Remimder")
-                
-                .navigationBarTitleDisplayMode(.inline)
-                
-        }
-        
-    
+//        NavigationView{
+//
+//
+//                //.navigationBarTitle("Remimder")
+//
+//                .navigationBarTitleDisplayMode(.inline)
+//
+//        }
+//
+        Home()
   
     }
 }
